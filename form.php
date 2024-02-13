@@ -46,6 +46,7 @@
 
 <?php
 // submit data into database
+
 if($_SERVER["REQUEST_METHOD"]=="POST"){
   $name=$_POST["name"];
   $email=$_POST["email"];
@@ -58,7 +59,7 @@ $pass="";
 $db="college"; 
 $conn=mysqli_connect($servername,$usrname,$pass,$db);
 // query
-$query="INSERT INTO `form` (`sno`, `username`, `email`, `password`) VALUES ('4', 'khanbhai', 'nazee2r@.com ', '321')";
+$query="INSERT INTO `form` ( `username`, `email`, `password`) VALUES (' $name', '$email ', '$pass')";
 $result = mysqli_query($conn, $query);
   echo '<div class="alert alert-primary" role="alert">
   Your Name '. $name.', Email '.$email.' and Password '.$pass.' is successfully submitted into DB.
